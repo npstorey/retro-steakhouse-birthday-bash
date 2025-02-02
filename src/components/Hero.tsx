@@ -62,18 +62,18 @@ const Hero = () => {
       </div>
       
       <div className="relative z-10 text-center px-4 space-y-8">
-        <h1 className={`text-6xl md:text-8xl font-bold mb-6 ${glitchText ? 'animate-glitch' : ''}`}>
-          <span className="block text-steakhouse-cream animate-neonFlicker filter drop-shadow-[0_0_8px_rgba(226,232,240,0.8)]">
+        <h1 className={`text-6xl md:text-8xl font-display mb-6 ${glitchText ? 'animate-glitch' : ''}`}>
+          <span className="block text-steakhouse-cream neon-text">
             RETRO 1982
           </span>
-          <span className="block text-steakhouse-blue animate-neonFlicker filter drop-shadow-[0_0_8px_rgba(30,174,219,0.8)]">
+          <span className="block text-steakhouse-blue neon-text">
             BIRTHHOUSE
           </span>
-          <span className="block text-steakhouse-pink animate-neonFlicker filter drop-shadow-[0_0_8px_rgba(139,92,246,0.8)]">
+          <span className="block text-steakhouse-pink neon-text">
             EXTRADAGANCA
           </span>
         </h1>
-        <p className={`text-steakhouse-pink text-xl md:text-2xl mb-8 ${glitchText ? 'animate-glitch' : ''} filter drop-shadow-[0_0_8px_rgba(139,92,246,0.6)]`}>
+        <p className={`text-steakhouse-pink text-xl md:text-2xl mb-8 font-body ${glitchText ? 'animate-glitch' : ''} filter drop-shadow-[0_0_8px_rgba(139,92,246,0.6)]`}>
           {slogans[currentSlogan]}
         </p>
         <div className="space-y-4">
@@ -83,7 +83,7 @@ const Hero = () => {
           >
             RSVP NOW
           </a>
-          <p className="text-steakhouse-cream text-sm animate-pulse filter drop-shadow-[0_0_8px_rgba(226,232,240,0.6)]">
+          <p className="text-steakhouse-cream text-sm font-body animate-pulse filter drop-shadow-[0_0_8px_rgba(226,232,240,0.6)]">
             A NIGHT OF SIZZLING STEAKS & RETRO VIBES
           </p>
         </div>

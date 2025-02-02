@@ -18,6 +18,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        display: ['Monoton', 'cursive'],
+        body: ['Open Sans', 'sans-serif'],
+      },
       colors: {
         steakhouse: {
           maroon: "#D946EF",
@@ -69,13 +73,12 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        neonFlicker: {
-          "0%, 18%, 22%, 25%, 53%, 57%, 100%": {
-            textShadow:
-              "0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #00F3FF, 0 0 80px #00F3FF, 0 0 90px #00F3FF, 0 0 100px #00F3FF, 0 0 150px #00F3FF",
+        neonPulse: {
+          '0%, 100%': {
+            textShadow: '0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px currentColor',
           },
-          "20%, 24%, 55%": {
-            textShadow: "none",
+          '50%': {
+            textShadow: '0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px currentColor, 0 0 80px currentColor',
           },
         },
         glitch: {
@@ -115,6 +118,7 @@ export default {
         float: "float 3s ease-in-out infinite",
         scanline: "scanline 8s linear infinite",
         retroFade: "retroFade 0.5s ease-out",
+        'neon-pulse': 'neonPulse 2s ease-in-out infinite',
       },
       backgroundImage: {
         'scanlines': "repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0px, rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 2px)",

@@ -31,7 +31,11 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-wider;
   }
 
   /* Custom scrollbar */
@@ -49,5 +53,15 @@
 
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-steakhouse-blue;
+  }
+}
+
+@layer components {
+  .neon-text {
+    @apply animate-neon-pulse;
+  }
+  
+  .retro-headline {
+    @apply font-display text-transparent bg-clip-text bg-gradient-to-r from-steakhouse-blue via-steakhouse-pink to-steakhouse-maroon;
   }
 }
