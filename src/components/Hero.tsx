@@ -1,9 +1,18 @@
 import { useEffect, useState } from "react";
 import { Tv, Music, Gift } from "lucide-react";
 
+const slogans = [
+  "Sizzle Into 1982!",
+  "Funk, Flavor, and Filet!",
+  "Where Retro Meets Rare!",
+  "Steaks & Synthesizers!",
+  "Time Travel Never Tasted Better!",
+];
+
 const Hero = () => {
   const [glitchText, setGlitchText] = useState(false);
   const [tvStatic, setTvStatic] = useState(false);
+  const [currentSlogan, setCurrentSlogan] = useState(0);
 
   useEffect(() => {
     // Glitch effect interval
@@ -18,9 +27,17 @@ const Hero = () => {
       setTimeout(() => setTvStatic(false), 100);
     }, 5000);
 
+    // Slogan rotation interval
+    const sloganInterval = setInterval(() => {
+      setCurrentSlogan((prev) => (prev + 1) % slogans.length);
+      setGlitchText(true);
+      setTimeout(() => setGlitchText(false), 200);
+    }, 4000);
+
     return () => {
       clearInterval(glitchInterval);
       clearInterval(staticInterval);
+      clearInterval(sloganInterval);
     };
   }, []);
 
@@ -49,8 +66,8 @@ const Hero = () => {
             STEAKHOUSE
           </span>
         </h1>
-        <p className="text-steakhouse-pink text-xl md:text-2xl mb-8 animate-neonFlicker">
-          BIRTHDAY EXTRAVAGANZA
+        <p className={`text-steakhouse-pink text-xl md:text-2xl mb-8 ${glitchText ? 'animate-glitch' : ''}`}>
+          {slogans[currentSlogan]}
         </p>
         <div className="space-y-4">
           <a
