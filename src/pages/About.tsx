@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import { Sparkles } from "lucide-react";
+import Timeline from "@/components/Timeline";
 
 const About = () => {
   return (
@@ -48,6 +49,18 @@ const About = () => {
               Over the decades, we've preserved that original spark. The décor still pays homage to the arcades and movie sets of 1982. Our neon signs flicker with the same hypnotic glow, and the aroma of expertly grilled steak still welcomes every guest at the door. This isn't just a restaurant; it's a time capsule—a living tribute to a year when everything felt fresh, vibrant, and full of possibility. So whether you're a first-time visitor or a seasoned traveler from our early days, we invite you to step into Retro '82, step back into 1982, and savor a bite of timeless nostalgia.
             </motion.p>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+            className="mt-16"
+          >
+            <h2 className="text-3xl font-bold mb-8 text-center text-steakhouse-pink">
+              Our Journey Through Time
+            </h2>
+            <Timeline />
+          </motion.div>
         </motion.div>
       </main>
     </div>
