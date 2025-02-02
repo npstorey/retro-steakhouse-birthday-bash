@@ -21,42 +21,42 @@ const timelineEvents: TimelineEvent[] = [
     title: "The Grand Opening",
     popupTitle: "Inaugural Sizzle",
     popupText: "Retro '82 Steakhouse opens its doors! Roller-skating waitstaff, disco-ball lighting, and arcade cabinets make headlines in the local paper.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f"
+    image: "/lovable-uploads/890f9742-f268-4dac-89ca-c0184a894d85.png"
   },
   {
     year: 1985,
     title: "New Wave Hits the Diner",
     popupTitle: "Synth-Pop Takeover",
     popupText: "As disco fades, synth-pop tunes fill the steakhouse. A brand-new jukebox arrives, stocked with hits from Depeche Mode and Tears for Fears.",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
+    image: "/lovable-uploads/b0229b3e-3e93-4e03-8701-6b47f0592b30.png"
   },
   {
     year: 1992,
     title: "The Arcade Expansion",
     popupTitle: "More Games, More Glory",
     popupText: "Retro '82 doubles its arcade space with pinball machines, air hockey, and the brand-new craze: fighting games! High-scores become local legend.",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5"
+    image: "/lovable-uploads/3d5d98a1-26d3-42b5-b9b5-192b470003d0.png"
   },
   {
     year: 2000,
     title: "Y2K Buzz",
     popupTitle: "Surviving Y2K",
     popupText: "The world braces for the new millennium, but Retro '82 rolls on—ringing in the 2000s with a revamped neon sign and a special steak sauce named 'Millennium Marinade.'",
-    image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b"
+    image: "/lovable-uploads/003308ff-6db4-4e74-a612-eda78618bf12.png"
   },
   {
     year: 2012,
     title: "30th Anniversary Bash",
     popupTitle: "Three Decades of Sizzle",
     popupText: "Celebrating 30 years of legendary steaks, Retro '82 hosts a full retro-themed night. Guests dress in '80s gear, and the dance floor rumbles with classic hits.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f"
+    image: "/lovable-uploads/8f2b899b-6515-4340-9382-e4981ab5036e.png"
   },
   {
     year: 2023,
     title: "The Renovation & Revival",
     popupTitle: "Returning to Our Roots",
     popupText: "Retro '82 gets a neon facelift, adding cutting-edge grills while keeping the iconic arcade. We honor the past as we fire up the future!",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
+    image: "/lovable-uploads/9fd86a99-b571-4940-9684-ac45103375de.png"
   },
 ];
 
