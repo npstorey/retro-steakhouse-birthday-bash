@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Flame } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,10 +12,11 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed w-full z-50 bg-steakhouse-wood/90 backdrop-blur-sm">
+    <nav className="fixed w-full z-50 bg-steakhouse-wood/90 backdrop-blur-sm border-b border-steakhouse-cream/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex items-center space-x-2">
+            <Flame className="h-6 w-6 text-steakhouse-pink animate-pulse" />
             <span className="text-steakhouse-cream font-bold text-xl animate-neonFlicker">
               RETRO '82
             </span>
@@ -28,9 +29,10 @@ const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-steakhouse-cream hover:text-steakhouse-blue transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-steakhouse-cream hover:text-steakhouse-blue transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium relative group"
                 >
-                  {item.name}
+                  <span className="relative z-10">{item.name}</span>
+                  <span className="absolute inset-0 bg-steakhouse-cream/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300"></span>
                 </a>
               ))}
             </div>
@@ -40,7 +42,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-steakhouse-cream hover:text-steakhouse-blue focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-steakhouse-cream hover:text-steakhouse-blue focus:outline-none transition-colors duration-300"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -49,22 +51,24 @@ const Navigation = () => {
       </div>
 
       {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {menuItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-steakhouse-cream hover:text-steakhouse-blue block px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
+      <div
+        className={`md:hidden transition-all duration-300 ease-in-out ${
+          isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+        } overflow-hidden`}
+      >
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-steakhouse-wood/95 backdrop-blur-sm">
+          {menuItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="text-steakhouse-cream hover:text-steakhouse-blue block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300"
+              onClick={() => setIsOpen(false)}
+            >
+              {item.name}
+            </a>
+          ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 };
