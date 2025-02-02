@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { Flame, Beef, Droplets } from "lucide-react";
 import useSound from 'use-sound';
+import GrillMasterGame from '@/components/GrillMasterGame';
 
 interface MenuItem {
   id: number;
@@ -46,8 +47,10 @@ const Menu = () => {
   const [selectedDoneness, setSelectedDoneness] = useState<Doneness>('medium-rare');
   const [selectedSeasoning, setSelectedSeasoning] = useState<Seasoning>('classic');
   const [selectedSauce, setSelectedSauce] = useState<Sauce>('none');
+  const [showGame, setShowGame] = useState(false);
+  const [secretClickCount, setSecretClickCount] = useState(0);
   
-  // We'll use the placeholder sound for now - in production, replace with actual sizzle sound
+  // We'll use the placeholder sound for now
   const [playSizzle] = useSound('/path-to-sizzle-sound.mp3', { volume: 0.5 });
 
   const getDonenessBgColor = (doneness: Doneness) => {
@@ -68,10 +71,23 @@ const Menu = () => {
     });
   };
 
+  const handleSecretClick = () => {
+    setSecretClickCount(prev => {
+      if (prev === 2) { // After 3 clicks
+        setShowGame(true);
+        return 0;
+      }
+      return prev + 1;
+    });
+  };
+
   return (
     <div className="min-h-screen bg-steakhouse-wood p-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-6xl font-bold text-center mb-12 text-steakhouse-cream animate-neonFlicker">
+        <h1 
+          className="text-6xl font-bold text-center mb-12 text-steakhouse-cream animate-neonFlicker cursor-pointer"
+          onClick={handleSecretClick}
+        >
           Sizzling Specials
         </h1>
 
@@ -172,6 +188,7 @@ const Menu = () => {
             Customize My Steak
           </Button>
         </div>
+        {showGame && <GrillMasterGame onClose={() => setShowGame(false)} />}
       </div>
     </div>
   );
