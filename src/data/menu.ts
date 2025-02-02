@@ -30,7 +30,7 @@ export const menuItems: MenuItem[] = [
     description: "Our retro take on the classic - beef tenderloin wrapped in mushroom duxelles and pastry.",
     price: "$45",
     category: "specialties",
-    image: "/lovable-uploads/890f9742-f268-4dac-89ca-c0184a894d85.png"
+    image: "/lovable-uploads/fe6824fa-00b9-4760-958a-807cbc61ae17.png"
   },
   {
     id: "4",
