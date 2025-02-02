@@ -3,12 +3,12 @@ import Navigation from "@/components/Navigation";
 import { motion } from "framer-motion";
 import { Utensils } from "lucide-react";
 import MenuCard from "@/components/MenuCard";
-import { menuItems } from "@/data/menu";
+import { menuItems, MenuItem } from "@/data/menu";
 
 const Menu = () => {
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
-  const categories = ["all", ...new Set(menuItems.map((item) => item.category))];
+  const categories = ["all", ...new Set(menuItems.map(item => item.category))];
 
   const filteredItems = selectedCategory === "all"
     ? menuItems
@@ -48,12 +48,12 @@ const Menu = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item, index) => (
+          {filteredItems.map((item) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6 }}
             >
               <MenuCard item={item} />
             </motion.div>
