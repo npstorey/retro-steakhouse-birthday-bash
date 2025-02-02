@@ -20,21 +20,21 @@ const menuItems: MenuItem[] = [
     name: "The Boombox Ribeye",
     description: "A chart-topping 12oz ribeye that'll make your taste buds dance. Marbled to perfection like a disco ball's reflection.",
     price: "$32.82",
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/613a0697-20da-42ab-aa4d-556354165de9.png"
   },
   {
     id: 2,
     name: "Electric Slide Sirloin",
     description: "8oz of pure rhythm & beef. This lean cut moves across your palate with the smoothness of your favorite 80's dance.",
     price: "$28.82",
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/f671a13a-843f-4f5e-b199-bde42a994e57.png"
   },
   {
     id: 3,
     name: "Walkman Wellington",
     description: "Our signature beef Wellington that's wrapped tighter than your cassette tape. A hit single of flavors.",
     price: "$45.82",
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/735408d2-8527-4861-8931-8450b756db39.png"
   }
 ];
 
@@ -100,11 +100,11 @@ const Menu = () => {
               onMouseEnter={() => playSizzle()}
             >
               <div className="p-6 space-y-4">
-                <div className="relative h-48 overflow-hidden rounded-lg mb-4">
+                <div className="relative h-64 overflow-hidden rounded-lg mb-4">
                   <img 
                     src={item.image} 
                     alt={item.name}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 border-2 border-steakhouse-blue group-hover:border-steakhouse-maroon transition-colors duration-300" />
                 </div>
@@ -116,7 +116,6 @@ const Menu = () => {
           ))}
         </div>
 
-        {/* Steak Customizer */}
         <div className="bg-black/40 rounded-lg p-8 border border-steakhouse-blue">
           <h2 className="text-3xl font-bold text-steakhouse-maroon mb-8 text-center animate-neonFlicker">
             Steak Customizer
@@ -188,6 +187,7 @@ const Menu = () => {
             Customize My Steak
           </Button>
         </div>
+        
         {showGame && <GrillMasterGame onClose={() => setShowGame(false)} />}
       </div>
     </div>
