@@ -43,43 +43,47 @@ const Hero = () => {
 
   return (
     <div className="relative h-screen flex items-center justify-center bg-steakhouse-wood overflow-hidden">
+      {/* Background Patterns */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
+      <div className="absolute inset-0 bg-scanlines"></div>
+      
       {/* TV Static Effect */}
       <div className={`absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMDAwIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMyI+PC9wYXRoPgo8L3N2Zz4=')] opacity-20 transition-opacity duration-100 ${tvStatic ? 'opacity-40' : 'opacity-20'}`}></div>
       
       {/* Decorative Icons */}
       <div className="absolute top-10 left-10 text-steakhouse-blue animate-pulse">
-        <Tv size={32} />
+        <Tv size={32} className="filter drop-shadow-[0_0_8px_rgba(30,174,219,0.8)]" />
       </div>
       <div className="absolute top-10 right-10 text-steakhouse-pink animate-pulse">
-        <Music size={32} />
+        <Music size={32} className="filter drop-shadow-[0_0_8px_rgba(139,92,246,0.8)]" />
       </div>
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-steakhouse-cream animate-bounce">
-        <Gift size={32} />
+        <Gift size={32} className="filter drop-shadow-[0_0_8px_rgba(226,232,240,0.8)]" />
       </div>
       
       <div className="relative z-10 text-center px-4 space-y-8">
         <h1 className={`text-6xl md:text-8xl font-bold mb-6 ${glitchText ? 'animate-glitch' : ''}`}>
-          <span className="block text-steakhouse-cream animate-neonFlicker">
+          <span className="block text-steakhouse-cream animate-neonFlicker filter drop-shadow-[0_0_8px_rgba(226,232,240,0.8)]">
             RETRO 1982
           </span>
-          <span className="block text-steakhouse-blue animate-neonFlicker">
+          <span className="block text-steakhouse-blue animate-neonFlicker filter drop-shadow-[0_0_8px_rgba(30,174,219,0.8)]">
             BIRTHHOUSE
           </span>
-          <span className="block text-steakhouse-pink animate-neonFlicker">
+          <span className="block text-steakhouse-pink animate-neonFlicker filter drop-shadow-[0_0_8px_rgba(139,92,246,0.8)]">
             EXTRADAGANCA
           </span>
         </h1>
-        <p className={`text-steakhouse-pink text-xl md:text-2xl mb-8 ${glitchText ? 'animate-glitch' : ''}`}>
+        <p className={`text-steakhouse-pink text-xl md:text-2xl mb-8 ${glitchText ? 'animate-glitch' : ''} filter drop-shadow-[0_0_8px_rgba(139,92,246,0.6)]`}>
           {slogans[currentSlogan]}
         </p>
         <div className="space-y-4">
           <a
             href="#rsvp"
-            className="inline-block bg-steakhouse-maroon text-steakhouse-cream border-2 border-steakhouse-cream px-8 py-3 rounded-lg text-lg font-bold hover:bg-steakhouse-cream hover:text-steakhouse-maroon transition-all duration-300 hover:scale-105"
+            className="inline-block bg-steakhouse-maroon text-steakhouse-cream border-2 border-steakhouse-cream px-8 py-3 rounded-lg text-lg font-bold hover:bg-steakhouse-cream hover:text-steakhouse-maroon transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(226,232,240,0.3)] hover:shadow-[0_0_25px_rgba(226,232,240,0.5)]"
           >
             RSVP NOW
           </a>
-          <p className="text-steakhouse-cream text-sm animate-pulse">
+          <p className="text-steakhouse-cream text-sm animate-pulse filter drop-shadow-[0_0_8px_rgba(226,232,240,0.6)]">
             A NIGHT OF SIZZLING STEAKS & RETRO VIBES
           </p>
         </div>
@@ -88,11 +92,11 @@ const Hero = () => {
       {/* Decorative elements */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-steakhouse-wood to-transparent"></div>
       
-      {/* Corner decorations */}
-      <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-steakhouse-cream opacity-50"></div>
-      <div className="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-steakhouse-cream opacity-50"></div>
-      <div className="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-steakhouse-cream opacity-50"></div>
-      <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-steakhouse-cream opacity-50"></div>
+      {/* Corner decorations with enhanced glow */}
+      <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-steakhouse-cream opacity-50 shadow-[0_0_15px_rgba(226,232,240,0.3)]"></div>
+      <div className="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-steakhouse-cream opacity-50 shadow-[0_0_15px_rgba(226,232,240,0.3)]"></div>
+      <div className="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-steakhouse-cream opacity-50 shadow-[0_0_15px_rgba(226,232,240,0.3)]"></div>
+      <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-steakhouse-cream opacity-50 shadow-[0_0_15px_rgba(226,232,240,0.3)]"></div>
     </div>
   );
 };

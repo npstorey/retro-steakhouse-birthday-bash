@@ -20,11 +20,11 @@ export default {
     extend: {
       colors: {
         steakhouse: {
-          maroon: "#D946EF", // Updated to magenta pink
-          blue: "#1EAEDB",   // Updated to bright blue
-          pink: "#8B5CF6",   // Updated to vivid purple
-          wood: "#0F172A",   // Darker background
-          cream: "#E2E8F0",  // Updated to a softer white
+          maroon: "#D946EF",
+          blue: "#1EAEDB",
+          pink: "#8B5CF6",
+          wood: "#0F172A",
+          cream: "#E2E8F0",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -97,6 +97,14 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        scanline: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(100%)" },
+        },
+        retroFade: {
+          "0%": { opacity: "0", transform: "scale(0.95)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -105,6 +113,12 @@ export default {
         glitch: "glitch 0.3s infinite",
         tvStatic: "tvStatic 0.1s infinite",
         float: "float 3s ease-in-out infinite",
+        scanline: "scanline 8s linear infinite",
+        retroFade: "retroFade 0.5s ease-out",
+      },
+      backgroundImage: {
+        'scanlines': "repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0px, rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 2px)",
+        'grid-pattern': "linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px)",
       },
     },
   },
