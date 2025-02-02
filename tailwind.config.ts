@@ -20,11 +20,11 @@ export default {
     extend: {
       colors: {
         steakhouse: {
-          maroon: "#8B0000",
-          blue: "#00F3FF",
-          pink: "#FF1493",
-          wood: "#2C1810",
-          cream: "#FFF5E1",
+          maroon: "#D946EF", // Updated to magenta pink
+          blue: "#1EAEDB",   // Updated to bright blue
+          pink: "#8B5CF6",   // Updated to vivid purple
+          wood: "#0F172A",   // Darker background
+          cream: "#E2E8F0",  // Updated to a softer white
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

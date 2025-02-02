@@ -15,10 +15,18 @@ const NeonIntro = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-steakhouse-wood">
-      <div className="text-6xl md:text-8xl font-bold text-steakhouse-blue animate-neonFlicker">
-        WELCOME TO
-        <br />
-        RETRO '82
+      <div className="text-center">
+        <div className="text-6xl md:text-8xl font-bold">
+          <span className="block text-steakhouse-blue animate-neonFlicker">
+            WELCOME TO
+          </span>
+          <span className="block text-steakhouse-maroon animate-neonFlicker">
+            RETRO '82
+          </span>
+          <span className="block text-steakhouse-pink animate-neonFlicker">
+            BIRTHHOUSE
+          </span>
+        </div>
       </div>
     </div>
   );

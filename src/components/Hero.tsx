@@ -63,7 +63,10 @@ const Hero = () => {
             RETRO 1982
           </span>
           <span className="block text-steakhouse-blue animate-neonFlicker">
-            STEAKHOUSE
+            BIRTHHOUSE
+          </span>
+          <span className="block text-steakhouse-pink animate-neonFlicker">
+            EXTRADAGANCA
           </span>
         </h1>
         <p className={`text-steakhouse-pink text-xl md:text-2xl mb-8 ${glitchText ? 'animate-glitch' : ''}`}>
