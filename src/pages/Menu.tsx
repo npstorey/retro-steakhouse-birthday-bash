@@ -18,6 +18,7 @@ const Menu = () => {
     <div className="min-h-screen bg-steakhouse-wood text-steakhouse-cream">
       <Navigation />
       <div className="container mx-auto px-4 py-16 mt-16">
+        <p className="text-center text-sm text-steakhouse-cream/60 mb-4">Sample Menu - Actual menu may vary</p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
