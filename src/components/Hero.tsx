@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
 import { Tv, Music, Gift } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const slogans = [
   "Sizzle Into 1982!",
@@ -13,6 +19,7 @@ const Hero = () => {
   const [glitchText, setGlitchText] = useState(false);
   const [tvStatic, setTvStatic] = useState(false);
   const [currentSlogan, setCurrentSlogan] = useState(0);
+  const [showRsvpDialog, setShowRsvpDialog] = useState(false);
 
   useEffect(() => {
     // Glitch effect interval
@@ -42,7 +49,8 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative h-screen flex items-center justify-center bg-steakhouse-wood overflow-hidden">
+    <>
+      <div className="relative h-screen flex items-center justify-center bg-steakhouse-wood overflow-hidden">
       {/* Background Patterns */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
       <div className="absolute inset-0 bg-scanlines"></div>
@@ -60,34 +68,34 @@ const Hero = () => {
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-steakhouse-cream animate-bounce">
         <Gift size={32} className="filter drop-shadow-[0_0_8px_rgba(226,232,240,0.8)]" />
       </div>
-      
-      <div className="relative z-10 text-center px-4 space-y-8">
-        <h1 className={`text-6xl md:text-8xl font-display mb-6 ${glitchText ? 'animate-glitch' : ''}`}>
-          <span className="block text-steakhouse-cream neon-text">
-            RETRO 1982
-          </span>
-          <span className="block text-steakhouse-blue neon-text">
-            BIRTHHOUSE
-          </span>
-          <span className="block text-steakhouse-pink neon-text">
-            EXTRADAGANCA
-          </span>
-        </h1>
-        <p className={`text-steakhouse-pink text-xl md:text-2xl mb-8 font-body ${glitchText ? 'animate-glitch' : ''} filter drop-shadow-[0_0_8px_rgba(139,92,246,0.6)]`}>
-          {slogans[currentSlogan]}
-        </p>
-        <div className="space-y-4">
-          <a
-            href="#rsvp"
-            className="inline-block bg-steakhouse-maroon text-steakhouse-cream border-2 border-steakhouse-cream px-8 py-3 rounded-lg text-lg font-bold hover:bg-steakhouse-cream hover:text-steakhouse-maroon transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(226,232,240,0.3)] hover:shadow-[0_0_25px_rgba(226,232,240,0.5)]"
-          >
-            RSVP NOW
-          </a>
-          <p className="text-steakhouse-cream text-sm font-body animate-pulse filter drop-shadow-[0_0_8px_rgba(226,232,240,0.6)]">
-            A NIGHT OF SIZZLING STEAKS & RETRO VIBES
+        
+        <div className="relative z-10 text-center px-4 space-y-8">
+          <h1 className={`text-6xl md:text-8xl font-display mb-6 ${glitchText ? 'animate-glitch' : ''}`}>
+            <span className="block text-steakhouse-cream neon-text">
+              RETRO 1982
+            </span>
+            <span className="block text-steakhouse-blue neon-text">
+              BIRTHHOUSE
+            </span>
+            <span className="block text-steakhouse-pink neon-text">
+              EXTRADAGANCA
+            </span>
+          </h1>
+          <p className={`text-steakhouse-pink text-xl md:text-2xl mb-8 font-body ${glitchText ? 'animate-glitch' : ''} filter drop-shadow-[0_0_8px_rgba(139,92,246,0.6)]`}>
+            {slogans[currentSlogan]}
           </p>
+          <div className="space-y-4">
+            <button
+              onClick={() => setShowRsvpDialog(true)}
+              className="inline-block bg-steakhouse-maroon text-steakhouse-cream border-2 border-steakhouse-cream px-8 py-3 rounded-lg text-lg font-bold hover:bg-steakhouse-cream hover:text-steakhouse-maroon transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(226,232,240,0.3)] hover:shadow-[0_0_25px_rgba(226,232,240,0.5)]"
+            >
+              RSVP NOW
+            </button>
+            <p className="text-steakhouse-cream text-sm font-body animate-pulse filter drop-shadow-[0_0_8px_rgba(226,232,240,0.6)]">
+              A NIGHT OF SIZZLING STEAKS & RETRO VIBES
+            </p>
+          </div>
         </div>
-      </div>
 
       {/* Decorative elements */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-steakhouse-wood to-transparent"></div>
@@ -97,7 +105,23 @@ const Hero = () => {
       <div className="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-steakhouse-cream opacity-50 shadow-[0_0_15px_rgba(226,232,240,0.3)]"></div>
       <div className="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-steakhouse-cream opacity-50 shadow-[0_0_15px_rgba(226,232,240,0.3)]"></div>
       <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-steakhouse-cream opacity-50 shadow-[0_0_15px_rgba(226,232,240,0.3)]"></div>
-    </div>
+      </div>
+
+      <Dialog open={showRsvpDialog} onOpenChange={setShowRsvpDialog}>
+        <DialogContent className="bg-steakhouse-wood border-steakhouse-cream">
+          <DialogHeader>
+            <DialogTitle className="text-steakhouse-cream text-2xl font-display text-center mb-4">
+              RSVP Information
+            </DialogTitle>
+          </DialogHeader>
+          <div className="text-steakhouse-cream text-center">
+            <p className="text-lg mb-4">
+              Please RSVP by emailing Tal
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 
