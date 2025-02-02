@@ -22,7 +22,7 @@ export const menuItems: MenuItem[] = [
     description: "10oz top sirloin with a crispy exterior and juicy center, served with arcade butter.",
     price: "$29",
     category: "steaks",
-    image: "/lovable-uploads/735408d2-8527-4861-8931-8450b756db39.png"
+    image: "/lovable-uploads/8f2b899b-6515-4340-9382-e4981ab5036e.png"
   },
   {
     id: "3",
@@ -30,7 +30,7 @@ export const menuItems: MenuItem[] = [
     description: "Our retro take on the classic - beef tenderloin wrapped in mushroom duxelles and pastry.",
     price: "$45",
     category: "specialties",
-    image: "/lovable-uploads/f671a13a-843f-4f5e-b199-bde42a994e57.png"
+    image: "/lovable-uploads/890f9742-f268-4dac-89ca-c0184a894d85.png"
   },
   {
     id: "4",
