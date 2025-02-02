@@ -1,16 +1,27 @@
 import { useState } from "react";
 import { Menu, X, Flame } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleRsvpClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/#rsvp');
+    } else {
+      document.getElementById('rsvp')?.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
+  };
 
   const menuItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Menu", href: "/menu" },
-    { name: "RSVP", href: "#rsvp" },
+    { name: "RSVP", href: "#rsvp", onClick: handleRsvpClick },
   ];
 
   return (
@@ -32,7 +43,8 @@ const Navigation = () => {
               {menuItems.map((item) => (
                 <Link
                   key={item.name}
-                  to={item.href.startsWith("#") ? `/${item.href}` : item.href}
+                  to={item.href}
+                  onClick={item.onClick}
                   className={`text-steakhouse-cream hover:text-steakhouse-blue transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium relative group ${
                     location.pathname === item.href ? "text-steakhouse-blue" : ""
                   }`}
@@ -66,11 +78,11 @@ const Navigation = () => {
           {menuItems.map((item) => (
             <Link
               key={item.name}
-              to={item.href.startsWith("#") ? `/${item.href}` : item.href}
+              to={item.href}
+              onClick={item.onClick}
               className={`text-steakhouse-cream hover:text-steakhouse-blue block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ${
                 location.pathname === item.href ? "text-steakhouse-blue" : ""
               }`}
-              onClick={() => setIsOpen(false)}
             >
               {item.name}
             </Link>

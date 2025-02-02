@@ -1,194 +1,64 @@
-import React, { useState } from 'react';
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
-import { Flame, Beef, Droplets } from "lucide-react";
-import useSound from 'use-sound';
-import GrillMasterGame from '@/components/GrillMasterGame';
-
-interface MenuItem {
-  id: number;
-  name: string;
-  description: string;
-  price: string;
-  image: string;
-}
-
-const menuItems: MenuItem[] = [
-  {
-    id: 1,
-    name: "The Boombox Ribeye",
-    description: "A chart-topping 12oz ribeye that'll make your taste buds dance. Marbled to perfection like a disco ball's reflection.",
-    price: "$32.82",
-    image: "/lovable-uploads/613a0697-20da-42ab-aa4d-556354165de9.png"
-  },
-  {
-    id: 2,
-    name: "Electric Slide Sirloin",
-    description: "8oz of pure rhythm & beef. This lean cut moves across your palate with the smoothness of your favorite 80's dance.",
-    price: "$28.82",
-    image: "/lovable-uploads/f671a13a-843f-4f5e-b199-bde42a994e57.png"
-  },
-  {
-    id: 3,
-    name: "Walkman Wellington",
-    description: "Our signature beef Wellington that's wrapped tighter than your cassette tape. A hit single of flavors.",
-    price: "$45.82",
-    image: "/lovable-uploads/735408d2-8527-4861-8931-8450b756db39.png"
-  }
-];
-
-type Doneness = 'rare' | 'medium-rare' | 'medium' | 'medium-well' | 'well-done';
-type Seasoning = 'classic' | 'cajun' | 'garlic-herb';
-type Sauce = 'none' | 'mushroom' | 'peppercorn' | 'béarnaise';
+import { useState } from "react";
+import Navigation from "@/components/Navigation";
+import { motion } from "framer-motion";
+import { Utensils } from "lucide-react";
+import MenuCard from "@/components/MenuCard";
+import { menuItems } from "@/data/menu";
 
 const Menu = () => {
-  const { toast } = useToast();
-  const [selectedDoneness, setSelectedDoneness] = useState<Doneness>('medium-rare');
-  const [selectedSeasoning, setSelectedSeasoning] = useState<Seasoning>('classic');
-  const [selectedSauce, setSelectedSauce] = useState<Sauce>('none');
-  const [showGame, setShowGame] = useState(false);
-  const [secretClickCount, setSecretClickCount] = useState(0);
-  
-  // We'll use the placeholder sound for now
-  const [playSizzle] = useSound('/path-to-sizzle-sound.mp3', { volume: 0.5 });
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const getDonenessBgColor = (doneness: Doneness) => {
-    const colors = {
-      'rare': 'bg-red-300',
-      'medium-rare': 'bg-red-400',
-      'medium': 'bg-orange-400',
-      'medium-well': 'bg-orange-500',
-      'well-done': 'bg-orange-600'
-    };
-    return colors[doneness];
-  };
+  const categories = ["all", ...new Set(menuItems.map((item) => item.category))];
 
-  const handleCustomization = () => {
-    toast({
-      title: "Steak Customized! 🥩",
-      description: `Your steak will be cooked ${selectedDoneness} with ${selectedSeasoning} seasoning${selectedSauce !== 'none' ? ` and ${selectedSauce} sauce` : ''}.`,
-    });
-  };
-
-  const handleSecretClick = () => {
-    setSecretClickCount(prev => {
-      if (prev === 2) { // After 3 clicks
-        setShowGame(true);
-        return 0;
-      }
-      return prev + 1;
-    });
-  };
+  const filteredItems = selectedCategory === "all"
+    ? menuItems
+    : menuItems.filter((item) => item.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-steakhouse-wood p-8">
-      <div className="max-w-7xl mx-auto">
-        <h1 
-          className="text-6xl font-bold text-center mb-12 text-steakhouse-cream animate-neonFlicker cursor-pointer"
-          onClick={handleSecretClick}
+    <div className="min-h-screen bg-steakhouse-wood text-steakhouse-cream">
+      <Navigation />
+      <div className="container mx-auto px-4 py-16 mt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
         >
-          Sizzling Specials
-        </h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-neonFlicker flex items-center justify-center gap-2">
+            <Utensils className="text-steakhouse-pink" />
+            Our Menu
+            <Utensils className="text-steakhouse-pink" />
+          </h1>
 
-        {/* Vintage Menu Board */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {menuItems.map((item) => (
-            <Card 
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-4 py-2 rounded-full border transition-all duration-300 ${
+                  selectedCategory === category
+                    ? "bg-steakhouse-pink text-steakhouse-wood border-steakhouse-pink"
+                    : "border-steakhouse-cream/20 hover:border-steakhouse-pink"
+                }`}
+              >
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </button>
+            ))}
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredItems.map((item, index) => (
+            <motion.div
               key={item.id}
-              className="group relative overflow-hidden bg-black/40 border-steakhouse-blue hover:border-steakhouse-maroon transition-all duration-300"
-              onMouseEnter={() => playSizzle()}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className="p-6 space-y-4">
-                <div className="relative h-64 overflow-hidden rounded-lg mb-4">
-                  <img 
-                    src={item.image} 
-                    alt={item.name}
-                    className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 border-2 border-steakhouse-blue group-hover:border-steakhouse-maroon transition-colors duration-300" />
-                </div>
-                <h3 className="text-2xl font-bold text-steakhouse-maroon animate-neonFlicker">{item.name}</h3>
-                <p className="text-steakhouse-cream">{item.description}</p>
-                <p className="text-xl font-bold text-steakhouse-blue">{item.price}</p>
-              </div>
-            </Card>
+              <MenuCard item={item} />
+            </motion.div>
           ))}
         </div>
-
-        <div className="bg-black/40 rounded-lg p-8 border border-steakhouse-blue">
-          <h2 className="text-3xl font-bold text-steakhouse-maroon mb-8 text-center animate-neonFlicker">
-            Steak Customizer
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Doneness Selection */}
-            <div className="space-y-4">
-              <h3 className="text-xl text-steakhouse-cream mb-4 flex items-center gap-2">
-                <Flame className="text-steakhouse-maroon" />
-                Doneness
-              </h3>
-              <div className="space-y-2">
-                {['rare', 'medium-rare', 'medium', 'medium-well', 'well-done'].map((doneness) => (
-                  <Button
-                    key={doneness}
-                    onClick={() => setSelectedDoneness(doneness as Doneness)}
-                    className={`w-full ${selectedDoneness === doneness ? getDonenessBgColor(doneness as Doneness) : 'bg-gray-700'}`}
-                  >
-                    {doneness}
-                  </Button>
-                ))}
-              </div>
-            </div>
-
-            {/* Seasoning Selection */}
-            <div className="space-y-4">
-              <h3 className="text-xl text-steakhouse-cream mb-4 flex items-center gap-2">
-                <Beef className="text-steakhouse-maroon" />
-                Seasoning
-              </h3>
-              <div className="space-y-2">
-                {['classic', 'cajun', 'garlic-herb'].map((seasoning) => (
-                  <Button
-                    key={seasoning}
-                    onClick={() => setSelectedSeasoning(seasoning as Seasoning)}
-                    className={`w-full ${selectedSeasoning === seasoning ? 'bg-steakhouse-maroon' : 'bg-gray-700'}`}
-                  >
-                    {seasoning}
-                  </Button>
-                ))}
-              </div>
-            </div>
-
-            {/* Sauce Selection */}
-            <div className="space-y-4">
-              <h3 className="text-xl text-steakhouse-cream mb-4 flex items-center gap-2">
-                <Droplets className="text-steakhouse-maroon" />
-                Sauce
-              </h3>
-              <div className="space-y-2">
-                {['none', 'mushroom', 'peppercorn', 'béarnaise'].map((sauce) => (
-                  <Button
-                    key={sauce}
-                    onClick={() => setSelectedSauce(sauce as Sauce)}
-                    className={`w-full ${selectedSauce === sauce ? 'bg-steakhouse-blue' : 'bg-gray-700'}`}
-                  >
-                    {sauce}
-                  </Button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <Button 
-            onClick={handleCustomization}
-            className="w-full mt-8 bg-steakhouse-maroon hover:bg-steakhouse-blue transition-colors duration-300"
-          >
-            Customize My Steak
-          </Button>
-        </div>
-        
-        {showGame && <GrillMasterGame onClose={() => setShowGame(false)} />}
       </div>
     </div>
   );
