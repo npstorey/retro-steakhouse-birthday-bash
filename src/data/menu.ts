@@ -22,7 +22,7 @@ export const menuItems: MenuItem[] = [
     description: "10oz top sirloin with a crispy exterior and juicy center, served with arcade butter.",
     price: "$29",
     category: "steaks",
-    image: "/lovable-uploads/8f2b899b-6515-4340-9382-e4981ab5036e.png"
+    image: "/lovable-uploads/3a9fdd56-9d58-47bc-b2c6-669b07cf6bdc.png"
   },
   {
     id: "3",
