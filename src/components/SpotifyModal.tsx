@@ -25,15 +25,13 @@ const SpotifyModal = () => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="bg-[#1A1F2C]/90 border-steakhouse-cream text-steakhouse-cream max-w-3xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader className="relative">
-          <button
-            onClick={() => setIsOpen(false)}
-            className="absolute right-0 top-0 p-2 text-steakhouse-cream hover:text-steakhouse-pink transition-colors"
-          >
-            <X className="h-6 w-6" />
-          </button>
-        </DialogHeader>
-        <div className="space-y-6 px-2">
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute right-4 top-4 p-2 text-steakhouse-cream hover:text-steakhouse-pink transition-colors"
+        >
+          <X className="h-6 w-6" />
+        </button>
+        <div className="space-y-6 px-2 pt-6">
           <div className="space-y-4">
             <p className="text-lg leading-relaxed">
               BIRTHHOUSE EXTRADAGANCA was a themed party and experimental playlist experience that took place in February 2025—a fully immersive soundscape designed to transport guests into a hip steakhouse in 1982, followed by a wild house party, and ending with a legendary, dreamlike after-party.
@@ -73,7 +71,7 @@ const SpotifyModal = () => {
             <iframe 
               id="spotifyEmbed"
               style={{ borderRadius: "12px" }} 
-              src={`https://open.spotify.com/embed/playlist/${currentPlaylist}?utm_source=generator`}
+              src={`https://open.spotify.com/embed/playlist/${currentPlaylist}?utm_source=generator&theme=0`}
               width="100%" 
               height="380" 
               frameBorder="0" 
@@ -82,6 +80,16 @@ const SpotifyModal = () => {
               loading="lazy"
               className="w-full"
             />
+          </div>
+          <div className="text-center text-steakhouse-cream mt-4">
+            <a 
+              href="https://github.com/npstorey/retro-steakhouse-birthday-bash" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-steakhouse-pink transition-colors"
+            >
+              For more info: github.com/npstorey/retro-steakhouse-birthday-bash
+            </a>
           </div>
         </div>
       </DialogContent>
