@@ -36,11 +36,38 @@ const SpotifyModal = () => {
         <div className="space-y-6 px-2">
           <div className="space-y-4">
             <p className="text-lg leading-relaxed">
-              BIRTHHOUSE EXTRADAGANCA was a themed party and experimental playlist experience that took place in February 2025—a fully immersive soundscape designed to transport guests into a hip steakhouse in 1982, followed by a wild house party, and ending with a legendary, dreamlike after-party. The night unfolded through three distinct soundtracks, each capturing a unique phase of the evening&apos;s journey.
+              BIRTHHOUSE EXTRADAGANCA was a themed party and experimental playlist experience that took place in February 2025—a fully immersive soundscape designed to transport guests into a hip steakhouse in 1982, followed by a wild house party, and ending with a legendary, dreamlike after-party.
             </p>
             <p className="text-lg leading-relaxed">
-              Now, you can experience the full three-part BIRTHHOUSE EXTRADAGANCA soundtrack—recreated and preserved on Spotify.
+              Now, you can experience the BIRTHHOUSE EXTRADAGANCA soundtrack—and two alternate versions.
             </p>
+            <p className="text-lg leading-relaxed">
+              <strong>After the Steak</strong> was created by a time-traveling AI, responding to the Original Soundtrack.<br />
+              <strong>Continue the Journey</strong> was the AI's entry into a cosmic contest, expanding the night into an interdimensional dreamscape.
+            </p>
+            <p className="text-lg leading-relaxed">
+              Choose your path below and experience the journey.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Button
+              onClick={() => changePlaylist(playlists.main)}
+              className="bg-steakhouse-maroon hover:bg-steakhouse-pink text-white font-medium px-6 py-2 rounded-md transition-all duration-300 hover:shadow-neon"
+            >
+              Original Soundtrack
+            </Button>
+            <Button
+              onClick={() => changePlaylist(playlists.afterSteak)}
+              className="bg-steakhouse-blue hover:bg-steakhouse-pink text-white font-medium px-6 py-2 rounded-md transition-all duration-300 hover:shadow-neon"
+            >
+              After the Steak
+            </Button>
+            <Button
+              onClick={() => changePlaylist(playlists.afterParty)}
+              className="bg-steakhouse-pink hover:bg-steakhouse-blue text-white font-medium px-6 py-2 rounded-md transition-all duration-300 hover:shadow-neon"
+            >
+              Continue the Journey
+            </Button>
           </div>
           <div className="w-full aspect-[16/9] max-w-full mt-6">
             <iframe 
@@ -55,20 +82,6 @@ const SpotifyModal = () => {
               loading="lazy"
               className="w-full"
             />
-          </div>
-          <div className="flex flex-wrap gap-4 justify-center pt-4">
-            <Button
-              onClick={() => changePlaylist(playlists.afterSteak)}
-              className="bg-steakhouse-maroon hover:bg-steakhouse-pink text-white font-medium px-6 py-2 rounded-md transition-all duration-300 hover:shadow-neon"
-            >
-              After the Steak
-            </Button>
-            <Button
-              onClick={() => changePlaylist(playlists.afterParty)}
-              className="bg-steakhouse-blue hover:bg-steakhouse-pink text-white font-medium px-6 py-2 rounded-md transition-all duration-300 hover:shadow-neon"
-            >
-              Continue the Journey
-            </Button>
           </div>
         </div>
       </DialogContent>
