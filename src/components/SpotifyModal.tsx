@@ -33,12 +33,12 @@ const SpotifyModal = () => {
           <div className="w-full aspect-[16/9] max-w-full mt-6">
             <iframe 
               style={{ borderRadius: "12px" }} 
-              src="https://open.spotify.com/embed/playlist/09cbesu1k5a0wpgaraoc94"
+              src="https://open.spotify.com/embed/playlist/09CBESu1K5A0wPgARaoc94?utm_source=generator"
               width="100%" 
               height="380" 
               frameBorder="0" 
-              allowFullScreen 
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              allowFullScreen={true}
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
               className="w-full"
             />
