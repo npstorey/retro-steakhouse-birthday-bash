@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import {
   Dialog,
@@ -8,8 +7,11 @@ import {
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const SpotifyModal = () => {
-  const [isOpen, setIsOpen] = useState(true);
+interface SpotifyModalProps {
+  onClose: () => void;
+}
+
+const SpotifyModal = ({ onClose }: SpotifyModalProps) => {
   const [currentPlaylist, setCurrentPlaylist] = useState("09CBESu1K5A0wPgARaoc94");
 
   const playlists = {
@@ -23,10 +25,10 @@ const SpotifyModal = () => {
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={true} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="bg-[#1A1F2C]/90 border-steakhouse-cream text-steakhouse-cream max-w-3xl max-h-[90vh] overflow-y-auto">
         <button
-          onClick={() => setIsOpen(false)}
+          onClick={() => onClose()}
           className="absolute right-4 top-4 p-2 text-steakhouse-cream hover:text-steakhouse-pink transition-colors"
         >
           <X className="h-6 w-6" />

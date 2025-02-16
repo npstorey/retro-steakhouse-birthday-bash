@@ -1,5 +1,6 @@
+
 import { useState } from "react";
-import { Menu, X, Flame } from "lucide-react";
+import { Menu, X, Flame, Music } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Dialog,
@@ -8,7 +9,11 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-const Navigation = () => {
+interface NavigationProps {
+  onShowSpotify: () => void;
+}
+
+const Navigation = ({ onShowSpotify }: NavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showRsvpDialog, setShowRsvpDialog] = useState(false);
   const location = useLocation();
@@ -20,10 +25,17 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
+  const handleSoundtrackClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onShowSpotify();
+    setIsOpen(false);
+  };
+
   const menuItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Menu", href: "/menu" },
+    { name: "Soundtrack", href: "#soundtrack", onClick: handleSoundtrackClick, icon: <Music className="inline-block h-4 w-4 mr-1" /> },
     { name: "RSVP", href: "#rsvp", onClick: handleRsvpClick },
   ];
 
@@ -53,7 +65,7 @@ const Navigation = () => {
                       location.pathname === item.href ? "text-steakhouse-blue" : ""
                     }`}
                   >
-                    <span className="relative z-10">{item.name}</span>
+                    <span className="relative z-10">{item.icon}{item.name}</span>
                     <span className="absolute inset-0 bg-steakhouse-cream/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300"></span>
                   </Link>
                 ))}
@@ -88,7 +100,7 @@ const Navigation = () => {
                   location.pathname === item.href ? "text-steakhouse-blue" : ""
                 }`}
               >
-                {item.name}
+                {item.icon}{item.name}
               </Link>
             ))}
           </div>

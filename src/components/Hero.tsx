@@ -15,7 +15,11 @@ const slogans = [
   "Time Travel Never Tasted Better!",
 ];
 
-const Hero = () => {
+interface HeroProps {
+  onShowSpotify: () => void;
+}
+
+const Hero = ({ onShowSpotify }: HeroProps) => {
   const [glitchText, setGlitchText] = useState(false);
   const [tvStatic, setTvStatic] = useState(false);
   const [currentSlogan, setCurrentSlogan] = useState(0);
@@ -86,7 +90,7 @@ const Hero = () => {
           </p>
           <div className="space-y-4">
             <button
-              onClick={() => setShowRsvpDialog(true)}
+              onClick={() => onShowSpotify()}
               className="inline-block bg-steakhouse-maroon text-steakhouse-cream border-2 border-steakhouse-cream px-8 py-3 rounded-lg text-lg font-bold hover:bg-steakhouse-cream hover:text-steakhouse-maroon transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(226,232,240,0.3)] hover:shadow-[0_0_25px_rgba(226,232,240,0.5)]"
             >
               RSVP NOW

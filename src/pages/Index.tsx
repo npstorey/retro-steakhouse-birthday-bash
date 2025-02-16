@@ -10,16 +10,17 @@ import SpotifyModal from "@/components/SpotifyModal";
 
 const Index = () => {
   const [showGame, setShowGame] = useState(false);
+  const [showSpotifyModal, setShowSpotifyModal] = useState(false);
 
   return (
     <div className="min-h-screen bg-steakhouse-wood">
       <NeonIntro />
-      <Navigation />
-      <Hero />
+      <Navigation onShowSpotify={() => setShowSpotifyModal(true)} />
+      <Hero onShowSpotify={() => setShowSpotifyModal(true)} />
       <RetroTicker />
       <FloatingSteak onSteakClick={() => setShowGame(true)} />
       {showGame && <GrillMasterGame onClose={() => setShowGame(false)} />}
-      <SpotifyModal />
+      {showSpotifyModal && <SpotifyModal onClose={() => setShowSpotifyModal(false)} />}
     </div>
   );
 };
