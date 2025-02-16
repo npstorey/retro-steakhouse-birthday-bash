@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import NeonIntro from "@/components/NeonIntro";
@@ -10,7 +10,7 @@ import SpotifyModal from "@/components/SpotifyModal";
 
 const Index = () => {
   const [showGame, setShowGame] = useState(false);
-  const [showSpotifyModal, setShowSpotifyModal] = useState(false);
+  const [showSpotifyModal, setShowSpotifyModal] = useState(true); // Set to true by default
 
   return (
     <div className="min-h-screen bg-steakhouse-wood">
