@@ -71,25 +71,19 @@ Below is the full original story that inspired the first playlist:
 
 ## Playlists & Spotify Links
 
-We created **three immersive playlists**, each unfolding in **three movements** that mirror the narrative arc of that legendary night:
+We created **three immersive playlists**, each unfolding in **three movements** that mirror the narrative arc of that legendary night based on the following prompts:
 
-1. **Response Playlist to the 1982 Steakhouse Night**  
-   *Movement I: The New Steakhouse Vibe*  
-   *Movement II: The Answering Party*  
-   *Movement III: The Dawn Rebirth*  
-   **Spotify:** [Response Playlist to the 1982 Steakhouse Night](https://open.spotify.com/playlist/fake-link-1)
+1. **BIRTHHOUSE EXTRADAGANCA**  
+   BIRTHHOUSE EXTRADAGANCA recreates a legendary night in 1982—hip steakhouse grooves, a wild house party, and a dreamlike after-party. Deep-cut new wave, electro-funk, boogie, and cosmic jazz transport you back in time. 
+   **Spotify:** [BIRTHHOUSE EXTRADAGANCA](https://open.spotify.com/playlist/09CBESu1K5A0wPgARaoc94?si=b51a4f4d21d44954)
 
-2. **Evolving the Steakhouse Journey: A Playlist in Three Movements**  
-   *Movement I: The New Divine Steakhouse*  
-   *Movement II: The Transcendent Dancefloor*  
-   *Movement III: The Celestial Dawn*  
-   **Spotify:** [Evolving the Steakhouse Journey: A Playlist in Three Movements](https://open.spotify.com/playlist/fake-link-2)
+2. **After the Steak**  
+   Experience a reimagined 1982 Steakhouse Night in 3 phases: refined jazz-funk lounge, experimental club beats, and ambient sunrise meditations. This playlist bridges elegance with futuristic flair. A transcendent mix of retro cool!!!  
+   **Spotify:** [After the Steak](https://open.spotify.com/playlist/1zRauadB7PV6AobZD8kDgW?si=ffa7c97efbf1401e)
 
-3. **Celestial After-Party: A Playlist in Three Movements**  
-   *Movement I: The Urban Descent*  
-   *Movement II: The Hushed Reverie*  
-   *Movement III: The Dawning Epiphany*  
-   **Spotify:** [Celestial After-Party: A Playlist in Three Movements](https://open.spotify.com/playlist/fake-link-3)
+3. **Evolving the Steakhouse Journey: A Playlist in Three Movements**  
+   Embark on a three-part journey: Mvt I offers a cosmic jazz-funk banquet; Mvt II delivers trance rituals fusing ancient rhythms with futuristic beats; Mvt III unveils celestial ambient soundscapes. Savor this transformative sonic ride!   
+   **Spotify:** [Evolving the Steakhouse Journey: A Playlist in Three Movements](https://open.spotify.com/playlist/3M3BBNuhKod7U2o9FEcg5R?si=7c7e82dedf9e4c58)
 
 ---
 
