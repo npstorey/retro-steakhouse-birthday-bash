@@ -1,9 +1,12 @@
+
 import Navigation from "@/components/Navigation";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import SpotifyModal from "@/components/SpotifyModal";
 
 const NotFound = () => {
   const location = useLocation();
+  const [showSpotifyModal, setShowSpotifyModal] = useState(false);
 
   useEffect(() => {
     console.error(
@@ -14,7 +17,8 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen bg-steakhouse-wood">
-      <Navigation />
+      <Navigation onShowSpotify={() => setShowSpotifyModal(true)} />
+      {showSpotifyModal && <SpotifyModal onClose={() => setShowSpotifyModal(false)} />}
       <div className="pt-24 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-6xl font-bold mb-4 text-steakhouse-pink animate-neonFlicker">404</h1>

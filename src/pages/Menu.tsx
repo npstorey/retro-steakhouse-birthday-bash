@@ -1,12 +1,15 @@
+
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import { motion } from "framer-motion";
 import { Utensils } from "lucide-react";
 import MenuCard from "@/components/MenuCard";
-import { menuItems, MenuItem } from "@/data/menu";
+import { menuItems } from "@/data/menu";
+import SpotifyModal from "@/components/SpotifyModal";
 
 const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [showSpotifyModal, setShowSpotifyModal] = useState(false);
 
   const categories = ["all", ...new Set(menuItems.map(item => item.category))];
 
@@ -16,7 +19,9 @@ const Menu = () => {
 
   return (
     <div className="min-h-screen bg-steakhouse-wood text-steakhouse-cream">
-      <Navigation />
+      <Navigation onShowSpotify={() => setShowSpotifyModal(true)} />
+      {showSpotifyModal && <SpotifyModal onClose={() => setShowSpotifyModal(false)} />}
+      
       <div className="container mx-auto px-4 py-16 mt-16">
         <p className="text-center text-sm text-steakhouse-cream/60 mb-4">Sample Menu - Actual menu may vary</p>
         <motion.div

@@ -1,12 +1,18 @@
+
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import { Sparkles } from "lucide-react";
 import Timeline from "@/components/Timeline";
+import { useState } from "react";
+import SpotifyModal from "@/components/SpotifyModal";
 
 const About = () => {
+  const [showSpotifyModal, setShowSpotifyModal] = useState(false);
+
   return (
     <div className="min-h-screen bg-steakhouse-wood text-steakhouse-cream">
-      <Navigation />
+      <Navigation onShowSpotify={() => setShowSpotifyModal(true)} />
+      {showSpotifyModal && <SpotifyModal onClose={() => setShowSpotifyModal(false)} />}
       
       <main className="container mx-auto px-4 py-16 mt-16">
         <motion.div
