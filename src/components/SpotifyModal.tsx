@@ -6,9 +6,21 @@ import {
   DialogHeader,
 } from "@/components/ui/dialog";
 import { X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const SpotifyModal = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const [currentPlaylist, setCurrentPlaylist] = useState("09CBESu1K5A0wPgARaoc94");
+
+  const playlists = {
+    main: "09CBESu1K5A0wPgARaoc94",
+    afterSteak: "1zRauadB7PV6AobZD8kDgW",
+    afterParty: "3M3BBNuhKod7U2o9FEcg5R"
+  };
+
+  const changePlaylist = (playlistId: string) => {
+    setCurrentPlaylist(playlistId);
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -32,8 +44,9 @@ const SpotifyModal = () => {
           </div>
           <div className="w-full aspect-[16/9] max-w-full mt-6">
             <iframe 
+              id="spotifyEmbed"
               style={{ borderRadius: "12px" }} 
-              src="https://open.spotify.com/embed/playlist/09CBESu1K5A0wPgARaoc94?utm_source=generator"
+              src={`https://open.spotify.com/embed/playlist/${currentPlaylist}?utm_source=generator`}
               width="100%" 
               height="380" 
               frameBorder="0" 
@@ -42,6 +55,20 @@ const SpotifyModal = () => {
               loading="lazy"
               className="w-full"
             />
+          </div>
+          <div className="flex flex-wrap gap-4 justify-center pt-4">
+            <Button
+              onClick={() => changePlaylist(playlists.afterSteak)}
+              className="bg-steakhouse-maroon hover:bg-steakhouse-pink text-white font-medium px-6 py-2 rounded-md transition-all duration-300 hover:shadow-neon"
+            >
+              After the Steak
+            </Button>
+            <Button
+              onClick={() => changePlaylist(playlists.afterParty)}
+              className="bg-steakhouse-blue hover:bg-steakhouse-pink text-white font-medium px-6 py-2 rounded-md transition-all duration-300 hover:shadow-neon"
+            >
+              Continue the Journey
+            </Button>
           </div>
         </div>
       </DialogContent>
