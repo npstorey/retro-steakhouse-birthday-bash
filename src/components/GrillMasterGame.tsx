@@ -107,61 +107,64 @@ const GrillMasterGame = ({ onClose }: { onClose: () => void }) => {
   };
 
   return (
-    <Card className="fixed inset-0 m-auto w-96 h-[32rem] bg-steakhouse-wood border-steakhouse-blue p-6 flex flex-col items-center justify-center space-y-4 animate-fade-in z-[100]">
-      <Button 
-        variant="ghost" 
-        className="absolute top-2 right-2 hover:bg-steakhouse-maroon"
-        onClick={onClose}
-      >
-        <X className="h-4 w-4" />
-      </Button>
-
-      <h2 className="text-2xl font-bold text-steakhouse-maroon animate-neonFlicker mb-4">
-        Grill Master Challenge
-      </h2>
-
-      {!gameStarted ? (
+    <>
+      <div className="fixed inset-0 bg-black/50 z-[999]" onClick={onClose} />
+      <Card className="fixed inset-0 m-auto w-96 h-[32rem] bg-steakhouse-wood border-steakhouse-blue p-6 flex flex-col items-center justify-center space-y-4 animate-fade-in z-[1000]">
         <Button 
-          onClick={startGame}
-          className="bg-steakhouse-blue hover:bg-steakhouse-maroon transition-colors"
+          variant="ghost" 
+          className="absolute top-2 right-2 hover:bg-steakhouse-maroon"
+          onClick={onClose}
         >
-          Start Game
+          <X className="h-4 w-4" />
         </Button>
-      ) : (
-        <>
-          <div className="text-steakhouse-cream mb-4">
-            Time: {timeLeft}s | Score: {score}
-          </div>
-          
-          <div className="grid grid-cols-3 gap-4">
-            {steaks.map(steak => (
-              <Button
-                key={steak.id}
-                onClick={() => flipSteak(steak.id)}
-                className={`w-24 h-24 relative ${
-                  steak.cookingLevel > 75
-                    ? 'bg-red-800'
-                    : steak.cookingLevel > 50
-                    ? 'bg-red-600'
-                    : 'bg-red-400'
-                } hover:scale-105 transition-all`}
-              >
-                <Flame
-                  className={`absolute ${
-                    steak.isFlipped ? 'bottom-2' : 'top-2'
-                  } left-1/2 transform -translate-x-1/2 text-orange-500`}
-                />
-              </Button>
-            ))}
-          </div>
-          
-          <p className="text-sm text-steakhouse-cream text-center mt-4">
-            Flip steaks when they're medium-rare!<br/>
-            Don't let them burn!
-          </p>
-        </>
-      )}
-    </Card>
+
+        <h2 className="text-2xl font-bold text-steakhouse-maroon animate-neonFlicker mb-4">
+          Grill Master Challenge
+        </h2>
+
+        {!gameStarted ? (
+          <Button 
+            onClick={startGame}
+            className="bg-steakhouse-blue hover:bg-steakhouse-maroon transition-colors"
+          >
+            Start Game
+          </Button>
+        ) : (
+          <>
+            <div className="text-steakhouse-cream mb-4">
+              Time: {timeLeft}s | Score: {score}
+            </div>
+            
+            <div className="grid grid-cols-3 gap-4">
+              {steaks.map(steak => (
+                <Button
+                  key={steak.id}
+                  onClick={() => flipSteak(steak.id)}
+                  className={`w-24 h-24 relative ${
+                    steak.cookingLevel > 75
+                      ? 'bg-red-800'
+                      : steak.cookingLevel > 50
+                      ? 'bg-red-600'
+                      : 'bg-red-400'
+                  } hover:scale-105 transition-all`}
+                >
+                  <Flame
+                    className={`absolute ${
+                      steak.isFlipped ? 'bottom-2' : 'top-2'
+                    } left-1/2 transform -translate-x-1/2 text-orange-500`}
+                  />
+                </Button>
+              ))}
+            </div>
+            
+            <p className="text-sm text-steakhouse-cream text-center mt-4">
+              Flip steaks when they're medium-rare!<br/>
+              Don't let them burn!
+            </p>
+          </>
+        )}
+      </Card>
+    </>
   );
 };
 
