@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -106,7 +107,7 @@ const GrillMasterGame = ({ onClose }: { onClose: () => void }) => {
   };
 
   return (
-    <Card className="fixed inset-0 m-auto w-96 h-[32rem] bg-steakhouse-wood border-steakhouse-blue p-6 flex flex-col items-center justify-center space-y-4 animate-fade-in">
+    <Card className="fixed inset-0 m-auto w-96 h-[32rem] bg-steakhouse-wood border-steakhouse-blue p-6 flex flex-col items-center justify-center space-y-4 animate-fade-in z-[100]">
       <Button 
         variant="ghost" 
         className="absolute top-2 right-2 hover:bg-steakhouse-maroon"
