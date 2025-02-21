@@ -12,12 +12,6 @@ const Navigation = ({ onShowSpotify }: NavigationProps) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleRsvpClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    onShowSpotify();
-    setIsOpen(false);
-  };
-
   const handleSoundtrackClick = (e: React.MouseEvent) => {
     e.preventDefault();
     onShowSpotify();
@@ -29,7 +23,6 @@ const Navigation = ({ onShowSpotify }: NavigationProps) => {
     { name: "About", href: "/about" },
     { name: "Menu", href: "/menu" },
     { name: "Soundtrack", href: "#soundtrack", onClick: handleSoundtrackClick, icon: <Music className="inline-block h-4 w-4 mr-1" /> },
-    { name: "RSVP", href: "#rsvp", onClick: handleRsvpClick },
   ];
 
   return (
