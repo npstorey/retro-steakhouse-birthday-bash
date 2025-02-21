@@ -28,7 +28,7 @@ const SpotifyModal = ({ onClose }: SpotifyModalProps) => {
 
   return (
     <Dialog open={true} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="fixed inset-0 sm:fixed sm:inset-auto bg-[#1a1a1a] border-8 border-[#333] rounded-none sm:rounded-xl text-steakhouse-cream sm:max-w-3xl h-[100dvh] sm:h-auto sm:max-h-[90vh] overflow-y-auto shadow-[0_0_50px_rgba(219,39,119,0.3),inset_0_0_30px_rgba(0,0,0,0.5)] animate-fade-in before:content-[''] before:absolute before:inset-0 before:bg-[url('/lovable-uploads/98cb7c30-ae18-44ee-b1c0-52b56ab6693d.png')] before:opacity-10 before:pointer-events-none">
+      <DialogContent className="w-full h-full p-0 bg-[#1a1a1a] border-8 border-[#333] sm:p-6 rounded-none sm:rounded-xl text-steakhouse-cream sm:max-w-3xl sm:h-auto sm:max-h-[90vh] overflow-y-auto shadow-[0_0_50px_rgba(219,39,119,0.3),inset_0_0_30px_rgba(0,0,0,0.5)] animate-fade-in before:content-[''] before:absolute before:inset-0 before:bg-[url('/lovable-uploads/98cb7c30-ae18-44ee-b1c0-52b56ab6693d.png')] before:opacity-10 before:pointer-events-none">
         <DialogHeader>
           <DialogTitle className="sr-only">Retro Steakhouse Jukebox</DialogTitle>
           <DialogDescription className="sr-only">Select and play music from different playlists representing different parts of the night</DialogDescription>
