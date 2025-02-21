@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Tv, Music, Gift } from "lucide-react";
 import {
@@ -93,7 +94,7 @@ const Hero = ({ onShowSpotify }: HeroProps) => {
               onClick={() => onShowSpotify()}
               className="inline-block bg-steakhouse-maroon text-steakhouse-cream border-2 border-steakhouse-cream px-8 py-3 rounded-lg text-lg font-bold hover:bg-steakhouse-cream hover:text-steakhouse-maroon transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(226,232,240,0.3)] hover:shadow-[0_0_25px_rgba(226,232,240,0.5)]"
             >
-              RSVP NOW
+              LISTEN NOW
             </button>
             <p className="text-steakhouse-cream text-sm font-body animate-pulse filter drop-shadow-[0_0_8px_rgba(226,232,240,0.6)]">
               A NIGHT OF SIZZLING STEAKS & RETRO VIBES
